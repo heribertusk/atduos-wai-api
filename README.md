@@ -6,7 +6,7 @@ Referensi data: https://github.com/guzfirdaus/Wilayah-Administrasi-Indonesia
 
 ### Specs
 * [Laravel 11](https://laravel.com/docs/11.x)
-* [Auth using Laravel Sanctum] (https://laravel.com/docs/11.x/sanctum#main-content)
+* Auth using [Laravel Sanctum](https://laravel.com/docs/11.x/sanctum#main-content)
 
 ### Install
 * clone project
