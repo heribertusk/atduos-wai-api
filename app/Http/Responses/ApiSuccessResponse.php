@@ -10,7 +10,7 @@ class ApiSuccessResponse implements Responsable
     public function __construct(
         private mixed $data,
         private array $metaData,
-        private int $statusCode = Response::HTTP_CREATED,
+        private int $statusCode = Response::HTTP_OK,
         private array $headers = [],
         private int $options = 0
     ) {
