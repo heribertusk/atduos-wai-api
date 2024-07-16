@@ -6,6 +6,8 @@ use App\Http\Responses\ApiErrorResponse;
 use App\Http\Responses\ApiSuccessResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Http\Response;
 
 class ProvinceController extends Controller
 {
@@ -38,7 +40,21 @@ class ProvinceController extends Controller
      */
     public function show(string $id)
     {
-        //
+        try {
+            $record = DB::table('reg_provinces')->where('id', $id)->first();
+
+            if (! $record) {
+                throw new ModelNotFoundException('No record found for the given criteria.');
+            }
+
+            return new ApiSuccessResponse($record, ['messages' => 'Data found.']);
+        } catch (ModelNotFoundException $mex) {
+            return new ApiErrorResponse(
+                $mex,
+                $mex->getMessage(),
+                Response::HTTP_BAD_REQUEST
+            );
+        }
     }
 
     /**

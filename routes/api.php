@@ -15,8 +15,8 @@ Route::controller(AuthController::class)->group(function () {
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('user', [AuthController::class, 'getUser']);
-    Route::resource('provinces', ProvinceController::class)->only(['index']);
+    Route::resource('provinces', ProvinceController::class)->only(['index', 'show']);
     Route::resource('regencies', RegencyController::class)->only(['index', 'show']);
     Route::resource('districts', DistrictController::class)->only(['index', 'show']);
-    Route::resource('villages', VillageController::class)->only(['index']);
+    Route::resource('villages', VillageController::class)->only(['index', 'show']);
 });
